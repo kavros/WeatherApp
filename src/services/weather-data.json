@@ -1,0 +1,5 @@
+[
+    {"temperature": 10, "location": "Edinburgh"},
+    {"temperature": 11, "location": "Glasgow"}, 
+    {"temperature": 7, "location": "Dundee"}
+]

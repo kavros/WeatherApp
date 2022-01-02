@@ -4,10 +4,12 @@ import './index.css';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 
+
+const element = <App name =  "Scotland's"/>;
+
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  element,
   document.getElementById('root')
 );
 

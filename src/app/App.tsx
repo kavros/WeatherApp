@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './App.css';
 import { WeatherData } from '../services/Weather-data.interface';
-import { WeatherDataService } from '../services/Weather-data.service';
+import { IWeatherDataService } from '../services/Weather-data.service';
 import jsonData from '../../src/services/weather-data.json'
 
-interface InputProps{
+export interface InputProps {
   name: string;
+  weatherService: IWeatherDataService;
 }
 
 class App extends Component<InputProps> {
-  weatherService: WeatherDataService = new WeatherDataService();
-
   render() {
-    let weatherData: WeatherData[] = this.weatherService.GetWeatherData(JSON.stringify(jsonData));
+    let weatherData: WeatherData[] = 
+      this.props
+      .weatherService
+      .GetWeatherData(JSON.stringify(jsonData));
 
     return <div className="App" >
       <div className="App-header">

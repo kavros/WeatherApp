@@ -1,4 +1,4 @@
-import { WeatherData } from './Weather-data.interface';
+import { WeatherData } from './Weather-data.dto';
 import { WeatherDataService } from './Weather-data.service';
 
 test('returns `tap aff` for Grece and Hawaii', () => {

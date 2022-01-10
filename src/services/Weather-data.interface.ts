@@ -1,5 +1,5 @@
-export interface WeatherData {
-    location: string;
-    temperature: number;
-    status: string;
+import { WeatherData } from "./Weather-data.dto";
+
+export interface IWeatherDataService {
+    GetWeatherData(jsonData: string): WeatherData[];
 }

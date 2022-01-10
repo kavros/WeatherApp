@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import './App.css';
-import { WeatherData } from '../services/Weather-data.interface';
-import { IWeatherDataService } from '../services/Weather-data.service';
+import { WeatherData } from '../services/Weather-data.dto';
 import jsonData from '../../src/services/weather-data.json'
+import { IWeatherDataService } from '../services/weather-data.interface';
 
 export interface InputProps {
   name: string;

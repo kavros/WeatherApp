@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { WeatherDataService } from '../services/Weather-data.service';
 import App, { InputProps } from './App';
 
+//TODO: experiment with mock service
 let props = { 
   weatherService : new WeatherDataService(),
   name : "Scotland's" 

@@ -3,7 +3,7 @@ import "reflect-metadata";
 import './App.css';
 import { WeatherData } from '../services/Weather-data.dto';
 import jsonData from '../../src/services/weather-data.json'
-import { IWeatherDataService } from '../services/weather-data.interface';
+import { IWeatherDataService } from '../services/Weather-data.interface';
 import { WeatherDataService } from '../services/Weather-data.service';
 import { myContainer } from '../IoC.config';
 

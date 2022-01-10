@@ -1,6 +1,6 @@
 import { myContainer } from '../IoC.config';
 import { WeatherData } from './Weather-data.dto';
-import { IWeatherDataService } from './weather-data.interface';
+import { IWeatherDataService } from './Weather-data.interface';
 import { WeatherDataService } from './Weather-data.service';
 
 describe("validates WeatherDataService logic", () => {
@@ -9,7 +9,7 @@ describe("validates WeatherDataService logic", () => {
     beforeEach(() => {
         service =  myContainer.get(WeatherDataService);
     });
-    
+
     test('returns `tap aff` for Grece and Hawaii', () => {
     
         const jsonData = [ 

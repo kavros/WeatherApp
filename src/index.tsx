@@ -2,13 +2,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App, { InputProps } from './app/App';
 import reportWebVitals from './reportWebVitals';
-import { WeatherDataService } from './services/Weather-data.service';
+import { Provider } from 'inversify-react';
+import { myContainer } from './IoC.config';
 
 let props = { 
-    weatherService : new WeatherDataService(),
     name : "Scotland's" 
 } as InputProps;
-const element = <App {...props}/>;
+const element = 
+  <Provider  container={myContainer}>
+    <App {...props}/>
+  </Provider>;
 
 ReactDOM.render(
   element,

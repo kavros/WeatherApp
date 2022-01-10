@@ -4,7 +4,6 @@ import App, { InputProps } from './App';
 
 //TODO: experiment with mock service
 let props = { 
-  weatherService : new WeatherDataService(),
   name : "Scotland's" 
 } as InputProps;
 

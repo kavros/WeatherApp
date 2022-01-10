@@ -1,6 +1,8 @@
+import { injectable } from "inversify";
 import { WeatherData } from "./Weather-data.dto";
 import { IWeatherDataService } from "./weather-data.interface";
 
+@injectable()
 export class WeatherDataService implements IWeatherDataService {
     public GetWeatherData(jsonData: string): WeatherData[] {
         let weatherData: WeatherData[] = JSON.parse(jsonData); 

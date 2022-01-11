@@ -10,7 +10,7 @@ describe("validates WeatherDataService logic", () => {
         service =  myContainer.get(WeatherDataService);
     });
 
-    test('returns `tap aff` for Grece and Hawaii', () => {
+    test('returns `tap aff` when temprature is equal or above 15', () => {
     
         const jsonData = [ 
                         {"temperature": 30, "location": "Greece"}, 
@@ -26,7 +26,7 @@ describe("validates WeatherDataService logic", () => {
         expect(weatherData).toEqual(expectedResponse);
     });
 
-    test('returns `tap Oan` for Poland and German', () => {
+    test('returns `tap Oan` is less or equal to 15.', () => {
         const jsonData = [ 
                         {"temperature": 12, "location": "Poland"}, 
                         {"temperature": 13, "location": "German"}

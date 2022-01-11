@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { WeatherDataService } from '../services/Weather-data.service';
 import App, { InputProps } from './App';
 
 //TODO: experiment with mock service

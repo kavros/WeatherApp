@@ -1,19 +1,29 @@
 import '@progress/kendo-theme-default/dist/all.css';
 import { Grid, GridColumn, GridEvent, GridSortChangeEvent } from '@progress/kendo-react-grid';
-import weatherdata from '../services/weather-data.json'
 import React from 'react';
 import { orderBy, SortDescriptor } from '@progress/kendo-data-query';
+import { IWeatherDataService } from '../services/Weather-data.interface';
+import { WeatherDataService } from '../services/Weather-data.service';
+import { myContainer } from '../IoC.config';
+import jsonData from '../../src/services/weather-data.json'
+import { WeatherData } from '../services/Weather-data.dto';
 
-const availableLocations = weatherdata.slice();
-const initialSort: Array<SortDescriptor> = [
-  { field: "location", dir: "asc" },
-];
+
 interface WeatherData2 {
   location: string;
   temperature: number;
 }
 
 function KendoGridExample() {
+  let weatherService: IWeatherDataService = myContainer.get(WeatherDataService);
+  let weatherData: WeatherData[] = 
+      weatherService
+      .GetWeatherData(JSON.stringify(jsonData));
+
+  const availableLocations = weatherData.slice();  
+  const initialSort: Array<SortDescriptor> = [
+    { field: "location", dir: "asc" },
+  ];
   const [gridData, setGridData] = React.useState<WeatherData2[]>(
     availableLocations.splice(0, 20)
   );
@@ -34,7 +44,6 @@ function KendoGridExample() {
   return (
     
     <div className="KendoGridExample">
-      <h1>Hello KendoReact!</h1>
       <Grid
           style={{ height: "400px" }}
           data={orderBy(gridData, sort)}

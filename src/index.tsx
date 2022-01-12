@@ -6,7 +6,7 @@ import { Provider } from 'inversify-react';
 import { myContainer } from './IoC.config';
 import KendoGridExample from './grid/grid';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NavBar from './home-page/navBar';
+import NavBar from './navBar/navBar';
 
 let props = { 
     name : "Scotland's" 

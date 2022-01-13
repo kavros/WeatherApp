@@ -1,4 +1,3 @@
-import { myContainer } from '../IoC.config';
 import { WeatherData } from '../interfaces/Weather-data.dto';
 import { IWeatherDataService } from '../interfaces/Weather-data.service.interface';
 import { WeatherDataService } from './Weather-data.service';
@@ -7,7 +6,7 @@ describe("validates WeatherDataService logic", () => {
     let service: IWeatherDataService;
 
     beforeEach(() => {
-        service =  myContainer.get(WeatherDataService);
+        service =  new WeatherDataService();
     });
 
     test('returns `tap aff` when temprature is equal or above 15', () => {

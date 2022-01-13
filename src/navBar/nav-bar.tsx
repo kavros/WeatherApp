@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import "reflect-metadata";
 import { Link, Outlet } from 'react-router-dom';
 
 class NavBar extends Component {

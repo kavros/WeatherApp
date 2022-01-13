@@ -1,39 +1,31 @@
-import { Component } from 'react';
-import "reflect-metadata";
+import { useContext } from 'react';
 import './List.css';
 import { WeatherData } from '../interfaces/Weather-data.dto';
 import jsonData from '../services/weather-data.json'
-import { IWeatherDataService } from '../interfaces/Weather-data.service.interface';
-import { WeatherDataService } from '../services/Weather-data.service';
-import { myContainer } from '../IoC.config';
+import { WeatherDataContext } from '../providers/weather-data.provider';
+import React from 'react';
 
 export interface InputProps {
   name: string;
   }
 
-class List extends Component<InputProps> {
-  
-  private weatherService: IWeatherDataService = myContainer.get(WeatherDataService);
-  
-  render() {
-
-    let weatherData: WeatherData[] = 
-      this
-      .weatherService
-      .GetWeatherData(JSON.stringify(jsonData));
-
-    return <div className="List" >
+const List: React.FunctionComponent<InputProps> = (props) => {
+  let weatherService = useContext(WeatherDataContext);
+  let weatherData: WeatherData[] | undefined =  weatherService
+    .service?.GetWeatherData(JSON.stringify(jsonData));
+  return (
+    <div className="List" >
       <div className="List-header">
-        <h2> Scotland's most accurate weather service</h2>
+        <h2> {props.name} most accurate weather service</h2>
         <p>
           {
-            weatherData.map((d, idx) => 
+            weatherData?.map((d, idx) => 
             { return (<li key={idx}> {d.location + ', the weather is ' + d.status} </li>) })
           }
         </p>
       </div>
     </div>
-  }
+  );
 }
 
 export default List;

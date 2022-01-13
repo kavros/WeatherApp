@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import "reflect-metadata";
-import './App.css';
-import { WeatherData } from '../services/Weather-data.dto';
-import jsonData from '../../src/services/weather-data.json'
-import { IWeatherDataService } from '../services/Weather-data.interface';
+import './List.css';
+import { WeatherData } from '../interfaces/Weather-data.dto';
+import jsonData from '../services/weather-data.json'
+import { IWeatherDataService } from '../interfaces/Weather-data.service.interface';
 import { WeatherDataService } from '../services/Weather-data.service';
 import { myContainer } from '../IoC.config';
 
@@ -11,7 +11,7 @@ export interface InputProps {
   name: string;
   }
 
-class App extends Component<InputProps> {
+class List extends Component<InputProps> {
   
   private weatherService: IWeatherDataService = myContainer.get(WeatherDataService);
   
@@ -22,8 +22,8 @@ class App extends Component<InputProps> {
       .weatherService
       .GetWeatherData(JSON.stringify(jsonData));
 
-    return <div className="App" >
-      <div className="App-header">
+    return <div className="List" >
+      <div className="List-header">
         <h2> Scotland's most accurate weather service</h2>
         <p>
           {
@@ -36,4 +36,4 @@ class App extends Component<InputProps> {
   }
 }
 
-export default App;
+export default List;

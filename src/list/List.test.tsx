@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import App, { InputProps } from './App';
+import List, { InputProps } from './List';
 
 //TODO: experiment with mock service
 let props = { 
@@ -7,13 +7,13 @@ let props = {
 } as InputProps;
 
 test('renders marketing title', () => {
-  render(<App {...props} />);
+  render(<List {...props} />);
   const title = screen.getByText(/Scotland's most accurate weather service/);
   expect(title).toBeInTheDocument();
 });
 
 test('uses the phrase /the weather is/', () => {
-  render(<App {...props} />);
+  render(<List {...props} />);
   const phrase = screen.getAllByText(/, the weather is/)[0];
 
   expect(phrase).toBeInTheDocument();

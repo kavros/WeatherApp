@@ -2,11 +2,11 @@ import '@progress/kendo-theme-default/dist/all.css';
 import { Grid, GridColumn, GridEvent, GridSortChangeEvent } from '@progress/kendo-react-grid';
 import React from 'react';
 import { orderBy, SortDescriptor } from '@progress/kendo-data-query';
-import { IWeatherDataService } from '../services/Weather-data.interface';
+import { IWeatherDataService } from '../interfaces/Weather-data.service.interface';
 import { WeatherDataService } from '../services/Weather-data.service';
 import { myContainer } from '../IoC.config';
 import jsonData from '../../src/services/weather-data.json'
-import { WeatherData } from '../services/Weather-data.dto';
+import { WeatherData } from '../interfaces/Weather-data.dto';
 
 
 interface WeatherData2 {

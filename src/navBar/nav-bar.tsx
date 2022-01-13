@@ -8,8 +8,9 @@ class NavBar extends Component {
       <div>
         <nav
           style={{ borderBottom: "solid 1px", paddingBottom: "1rem"}}>
-          <Link to="/home">Home</Link> |{" "}
-          <Link to="/grid">Details</Link>
+          <Link to="/list">List</Link> |{" "}
+          <Link to="/grid">Grid</Link> |{" "}
+          <Link to="/example">Hooks</Link>
         </nav>
         <Outlet />
       </div>

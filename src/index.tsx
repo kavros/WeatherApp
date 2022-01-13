@@ -1,12 +1,13 @@
 import ReactDOM from 'react-dom';
 import './index.css';
-import App, { InputProps } from './app/App';
+import List, { InputProps } from './list/List';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'inversify-react';
 import { myContainer } from './IoC.config';
 import KendoGridExample from './grid/grid';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NavBar from './navBar/navBar';
+import NavBar from './navBar/nav-bar';
+import { HooksExample } from './hooksExample/hooks-example';
 
 let props = { 
     name : "Scotland's" 
@@ -16,8 +17,9 @@ const element =
   <BrowserRouter>
     <Routes>
         <Route path="/" element={ <NavBar/>} >
-          <Route path="home" element={ <App {...props}/>} />
+          <Route path="list" element={ <List {...props}/>} />
           <Route path="grid" element={< KendoGridExample/>} />
+          <Route path="example" element={< HooksExample/>} />
         </Route>
     </Routes>
   </BrowserRouter>

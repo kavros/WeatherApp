@@ -1,5 +1,12 @@
 [
     {"temperature": 10, "location": "Edinburgh"},
     {"temperature": 11, "location": "Glasgow"}, 
-    {"temperature": 7, "location": "Dundee"}
+    {"temperature": 7, "location": "Dundee"},
+    {"temperature": 17, "location": "Athens"},
+    {"temperature": 20, "location": "Rome"},
+    {"temperature": 12, "location": "London"},
+    {"temperature": 11, "location": "Cambridge"}, 
+    {"temperature": 7, "location": "Reading"},
+    {"temperature": 17, "location": "Budapest"},
+    {"temperature": 20, "location": "New Castle"}
 ]

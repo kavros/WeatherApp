@@ -1,6 +1,6 @@
 import { myContainer } from '../IoC.config';
-import { WeatherData } from './Weather-data.dto';
-import { IWeatherDataService } from './Weather-data.interface';
+import { WeatherData } from '../interfaces/Weather-data.dto';
+import { IWeatherDataService } from '../interfaces/Weather-data.service.interface';
 import { WeatherDataService } from './Weather-data.service';
 
 describe("validates WeatherDataService logic", () => {

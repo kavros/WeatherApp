@@ -1,40 +1,34 @@
 import '@progress/kendo-theme-default/dist/all.css';
 import { Grid, GridColumn, GridEvent, GridSortChangeEvent } from '@progress/kendo-react-grid';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { orderBy, SortDescriptor } from '@progress/kendo-data-query';
 import { IWeatherDataService } from '../interfaces/Weather-data.service.interface';
 import { WeatherDataService } from '../services/Weather-data.service';
 import { myContainer } from '../IoC.config';
-import jsonData from '../../src/services/weather-data.json'
 import { WeatherData } from '../interfaces/Weather-data.dto';
 
-
-interface WeatherData2 {
-  location: string;
-  temperature: number;
-}
-
 function KendoGridExample() {
-  let weatherService: IWeatherDataService = myContainer.get(WeatherDataService);
-  let weatherData: WeatherData[] = 
-      weatherService
-      .GetWeatherData(JSON.stringify(jsonData));
-
-  const availableLocations = weatherData.slice();  
+    
+  let availableLocations: WeatherData[] = [];  
   const initialSort: Array<SortDescriptor> = [
     { field: "location", dir: "asc" },
   ];
-  const [gridData, setGridData] = React.useState<WeatherData2[]>(
+  let [gridData, setGridData] = React.useState<WeatherData[]>(
     availableLocations.splice(0, 20)
   );
+  
+  useEffect(() => {    
+    let weatherService: IWeatherDataService = myContainer.get(WeatherDataService);
+    weatherService.GetWeatherDataFromApi().then(x => setGridData( x));
+  }, []);
   const [sort, setSort] = React.useState(initialSort);
 
-    const scrollHandler = (event: GridEvent) => {
-    const e = event.nativeEvent;
-    if (
-      e.target.scrollTop + 10 >=
-      e.target.scrollHeight - e.target.clientHeight
-    ) {
+  const scrollHandler = (event: GridEvent) => {
+  const e = event.nativeEvent;
+  if (
+    e.target.scrollTop + 10 >=
+    e.target.scrollHeight - e.target.clientHeight
+  ) {
       const moreData = availableLocations.splice(0, 10);
       if (moreData.length > 0) {
         setGridData((oldData) => oldData.concat(moreData));

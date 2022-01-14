@@ -29,7 +29,12 @@ namespace WebApplication1.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            var locations = new[] { "Edinburgh", "Glasgow", "Dundee", "Athens", "Rome", "London", "Cambridge", "Budapest", "New Castle" };
+            var locations = new[] { "Edinburgh", "Glasgow", "Dundee", "Athens", 
+                "Rome", "London", "Cambridge", "Budapest", "New Castle",
+                "Istabul", "Moscow", "Paris", "Madrid", "Barcelona", "Berlin",
+                "Kiev","Milan","Manchester", "Viena", "Leeds", "Turin","Lyon",
+                "Bulgaria", "Prague"
+            };
             return Enumerable.Range(1, locations.Length-1).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
